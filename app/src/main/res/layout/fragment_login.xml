@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.suhaas.zolocustomerapp.LoginActivityFragment"
+    tools:context="com.suhaas.zolocustomerapp.ui.LoginActivityFragment"
     tools:showIn="@layout/activity_login">
 
     <TextView
