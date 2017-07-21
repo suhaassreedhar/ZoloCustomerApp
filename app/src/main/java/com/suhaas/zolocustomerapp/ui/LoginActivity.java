@@ -33,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
                     .replace(R.id.frameContainer, new LoginActivityFragment(),
                             Util.Login_Fragment).commit();
         }
-
     }
 
     protected void replaceLoginFragment() {

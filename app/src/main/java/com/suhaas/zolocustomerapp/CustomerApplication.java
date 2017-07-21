@@ -7,6 +7,8 @@ import com.suhaas.zolocustomerapp.di.component.ApplicationComponent;
 import com.suhaas.zolocustomerapp.di.component.DaggerApplicationComponent;
 import com.suhaas.zolocustomerapp.di.module.ApplicationModule;
 
+import io.realm.Realm;
+
 
 /**
  * Created by suhaas on 20/7/17.
@@ -28,6 +30,7 @@ public class CustomerApplication extends Application {
                 .applicationModule(new ApplicationModule(this))
                 .build();
         applicationComponent.inject(this);
+        Realm.init(this);
     }
 
     public ApplicationComponent getComponent(){

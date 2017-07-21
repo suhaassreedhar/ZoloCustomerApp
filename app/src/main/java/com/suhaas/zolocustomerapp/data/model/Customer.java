@@ -1,15 +1,18 @@
 package com.suhaas.zolocustomerapp.data.model;
 
+import io.realm.RealmObject;
+
 /**
  * Created by suhaas on 20/7/17.
  */
 
-public class Customer {
+public class Customer extends RealmObject {
 
     private Long id;
     private Long phone_number;
     private String email_id;
     private String name;
+    private String password;
     private String createdAt;
     private String updatedAt;
 
@@ -43,6 +46,14 @@ public class Customer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getCreatedAt() {

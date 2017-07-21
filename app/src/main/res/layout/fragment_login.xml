@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
-    tools:context="com.suhaas.zolocustomerapp.ui.LoginActivityFragment"
-    tools:showIn="@layout/activity_login">
+    android:background="@color/colorPrimary">
 
     <ImageView
         android:src="@drawable/zolo"
@@ -69,6 +66,7 @@
             android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/et_password"
                 android:hint="@string/password"
                 android:textColor="@color/colorAccent"
                 android:inputType="textPassword"
@@ -94,7 +92,7 @@
         android:text="@string/log_in"/>
 
     <TextView
-        android:id="@+id/forgot_pw"
+        android:id="@+id/tv_forgot_pw"
         android:textSize="16sp"
         android:textColor="@color/colorAccent"
         android:text="@string/forgot_pw"
