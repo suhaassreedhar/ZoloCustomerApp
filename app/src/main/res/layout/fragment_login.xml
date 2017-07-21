@@ -1,19 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context="com.suhaas.zolocustomerapp.ui.LoginActivityFragment"
     tools:showIn="@layout/activity_login">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:src="@drawable/zolo"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/ic_phone_call"
+            android:layout_gravity="center"
+            android:layout_marginRight="20dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:textColorHint="@color/yellow_300"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/et_phoneNum"
+                android:hint="@string/phone_number"
+                android:textColor="@color/colorAccent"
+                android:inputType="number"
+                android:textSize="16sp"
+                android:maxLength="10"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/ic_password"
+            android:layout_gravity="center"
+            android:layout_marginRight="20dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:textColorHint="@color/yellow_300"
+            android:layout_width="260dp"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@android:color/white"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:hint="@string/password"
+                android:textColor="@color/colorAccent"
+                android:inputType="textPassword"
+                android:textSize="16sp"
+                android:backgroundTint="@color/colorAccent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginBottom="20dp"
+        android:textAllCaps="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:stateListAnimator="@null"
+        android:background="@color/yellow_300"
+        android:text="@string/log_in"/>
+
+    <TextView
+        android:id="@+id/forgot_pw"
+        android:textSize="16sp"
+        android:textColor="@color/colorAccent"
+        android:text="@string/forgot_pw"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_create_account"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:textAllCaps="true"
+        android:layout_gravity="center"
+        android:stateListAnimator="@null"
+        android:background="@drawable/buttonshape_transparent"
+        android:text="@string/create_account"/>
+
+</LinearLayout>
