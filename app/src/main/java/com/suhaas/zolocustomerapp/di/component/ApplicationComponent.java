@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.suhaas.zolocustomerapp.CustomerApplication;
+import com.suhaas.zolocustomerapp.data.DataManager;
 import com.suhaas.zolocustomerapp.di.ApplicationContext;
 import com.suhaas.zolocustomerapp.di.module.ApplicationModule;
 
@@ -25,4 +26,6 @@ public interface ApplicationComponent {
     Context getContext();
 
     Application getApplication();
+
+    DataManager getDataManager();
 }

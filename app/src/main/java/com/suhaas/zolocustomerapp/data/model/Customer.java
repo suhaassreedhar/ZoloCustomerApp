@@ -8,7 +8,7 @@ import io.realm.RealmObject;
 
 public class Customer extends RealmObject {
 
-    private Long id;
+    private String id;
     private Long phone_number;
     private String email_id;
     private String name;
@@ -16,11 +16,11 @@ public class Customer extends RealmObject {
     private String createdAt;
     private String updatedAt;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

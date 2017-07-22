@@ -1,10 +1,9 @@
 package com.suhaas.zolocustomerapp.data;
 
 import android.content.Context;
-import android.content.res.Resources;
 
 import com.suhaas.zolocustomerapp.data.local.DbHelper;
-import com.suhaas.zolocustomerapp.data.local.SharedPrefsHelper;
+import com.suhaas.zolocustomerapp.data.local.prefs.SharedPrefsHelper;
 import com.suhaas.zolocustomerapp.di.ApplicationContext;
 
 import javax.inject.Inject;
@@ -15,7 +14,7 @@ import javax.inject.Singleton;
  */
 
 @Singleton
-public class DataManager {
+public class DataManager implements DataManagerInterface{
 
     private Context mContext;
     private DbHelper mDbHelper;
@@ -30,12 +29,39 @@ public class DataManager {
         mSharedPrefsHelper = sharedPrefsHelper;
     }
 
-    public void saveAccessToken(String accessToken) {
-        mSharedPrefsHelper.put(SharedPrefsHelper.PREF_KEY_ACCESS_TOKEN, accessToken);
+    @Override
+    public int getCurrentUserLoggedInMode() {
+        return mSharedPrefsHelper.getCurrentUserLoggedInMode();
     }
 
-    public String getAccessToken(){
-        return mSharedPrefsHelper.get(SharedPrefsHelper.PREF_KEY_ACCESS_TOKEN, null);
+    @Override
+    public void setCurrentUserLoggedInMode(LoggedInMode mode) {
+        mSharedPrefsHelper.setCurrentUserLoggedInMode(mode);
     }
 
+    @Override
+    public Long getCurrentUserId() {
+        return mSharedPrefsHelper.getCurrentUserId();
+    }
+
+    @Override
+    public void setCurrentUserId(Long userId) {
+        mSharedPrefsHelper.setCurrentUserId(userId);
+    }
+
+    @Override
+    public void updateUserInfo(
+            Long userId,
+            LoggedInMode loggedInMode) {
+
+        setCurrentUserId(userId);
+        setCurrentUserLoggedInMode(loggedInMode);
+    }
+
+    @Override
+    public void setUserAsLoggedOut() {
+        updateUserInfo(
+                null,
+                DataManager.LoggedInMode.LOGGED_IN_MODE_LOGGED_OUT);
+    }
 }

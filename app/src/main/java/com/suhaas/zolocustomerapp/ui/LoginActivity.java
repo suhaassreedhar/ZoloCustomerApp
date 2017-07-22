@@ -1,29 +1,35 @@
 package com.suhaas.zolocustomerapp.ui;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 
 import com.suhaas.zolocustomerapp.R;
+import com.suhaas.zolocustomerapp.di.component.ActivityComponent;
+import com.suhaas.zolocustomerapp.ui.login.LoginActivityFragment;
 import com.suhaas.zolocustomerapp.utils.Util;
 
-public class LoginActivity extends AppCompatActivity {
+import javax.inject.Inject;
+
+public class LoginActivity extends AppCompatActivity implements LoginMvpView{
 
     private static FragmentManager fragmentManager;
+    ActivityComponent mActivityComponent;
+
+    @Inject
+    LoginMvpPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mActivityComponent.inject(this);
 
         fragmentManager = getSupportFragmentManager();
 
@@ -35,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    protected void replaceLoginFragment() {
+    public void replaceLoginFragment() {
         fragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.left_enter, R.anim.right_out)
